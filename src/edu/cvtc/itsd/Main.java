@@ -53,8 +53,13 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
-        super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+     if (fb.getDocument() != null) {
+  super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+
+    if (fb.getDocument().getLength() == MAX_LENGTH) {
+        Main.processCard();
+    }
+}
       }
       else {
         Toolkit.getDefaultToolkit().beep();
@@ -260,11 +265,7 @@ public class Main {
     fieldNumber.setForeground(Color.magenta);
     panelMain.add(fieldNumber);
 
-    JButton updateButton = new JButton("Update");
-    updateButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    updateButton.addActionListener(new Update());
-    updateButton.setForeground(Color.green);
-    panelMain.add(updateButton);
+  
 
     panelMain.add(Box.createVerticalGlue());
 
