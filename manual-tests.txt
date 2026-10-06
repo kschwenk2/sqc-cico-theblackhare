@@ -60,5 +60,6 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 
 ## Expected results
 * Should display "Developer" for the user name.
+Enter a complete card number and verify that it automatically submits without pressing Enter.
 
 
